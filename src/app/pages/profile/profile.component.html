@@ -1,0 +1,83 @@
+<div class="profile__container">
+  <div class="top__bar__container">
+    <div class="return" routerLink="/home">
+      <img src="/assets/img/back.svg" alt="return">
+      <a>Back</a>
+    </div>
+    <div class="messages-icon">
+      <img src="/assets/img/messages.svg" alt="messages" routerLink='/chatlist'>
+    </div>
+  </div>
+  <div class="profile-picture">
+    <img src="/assets/img/avatars/{{user.img}}" alt=""> <!--Imagen de prueba-->
+  </div>
+  <div class="profile-card__container">
+    <div class="user-info__container">
+      <div class="user-info">
+        <div class="name">
+          <h2>{{user.name}}</h2>
+        </div>
+        <div class="user-name">
+          <h1>@{{user.username}}</h1>
+        </div>
+        <div class="user-biography_text">
+          <p>{{user.biography}}</p>
+        </div>
+        <div class="follow_button" *ngIf="userLogged._id !== user._id">
+          <button *ngIf="!userLogged.contacts.includes(user._id)" (click)="followUser(user._id)">Follow</button>
+          <button *ngIf="userLogged.contacts.includes(user._id)" (click)="followUser(user._id)">UnFollow</button>
+        </div>
+        <div class="user-links">
+          <div class="link-icon">
+            <img src="/assets/img/link.svg" alt="link-icon">
+          <p><span>Links: </span></p>
+          </div>
+          <p *ngFor="let website of user.websites"><a class="links" href="{{website}}" target="_blank">{{website}}</a></p>
+        </div>
+      </div>
+      <div class="ubication">
+        <img src="/assets/img/ubication.svg" alt="ubication-icon">
+        <p>{{userLogged.ubication}}</p>
+      </div>
+      <div class="display-chips">
+        <div class="selected-option rol" *ngFor="let rol of user.rol">
+          <p>{{rol}}</p>
+        </div>
+      </div>
+      <div class="display-chips">
+        <div class="selected-option skill" *ngFor="let skill of user.skills">
+          <p>{{skill}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="projects__container">
+      <div class="projects__container__header">
+        <img src="/assets/img/projects.svg" alt="">
+        <h2>Projects</h2>
+      </div>
+      <div class="project-name" *ngFor="let post of user.posts">
+        <img src="/assets/img/Project-tittle-icon.svg" alt="">
+        <div class="di"></div>
+        <h3 routerLink="/post/{{post._id}}">{{post.title}}</h3>
+      </div>
+      <div class="add-project"  routerLink="/newpost" *ngIf="userLogged._id === user._id">
+        <img src="/assets/img/add.svg" alt="">
+        <h3>Add New Project</h3>
+      </div>
+    </div>
+    <div class="account-settings" *ngIf="userLogged.username === user.username">
+      <div class="edit-profile" routerLink="/editprofile/{{userLogged.username}}">
+        <img src="/assets/img/edit-profile.svg" alt="edit profile icon">
+        <h3>Edit Profile</h3>
+      </div>
+      <div class="notifications">
+        <img src="/assets/img/mail.svg" alt="nitifcations on or off">
+        <h3>Notifications</h3>
+        <mat-slide-toggle color="warn"></mat-slide-toggle>
+      </div>
+      <div class="log-out_button" *ngIf="userLogged._id === user._id">
+        <button (click)="logOut()">Log Out</button>
+      </div>
+    </div>
+  </div>
+</div>

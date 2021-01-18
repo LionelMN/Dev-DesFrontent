@@ -1,0 +1,121 @@
+.nav-bar__container {
+  background: #a1b8c6;
+  box-shadow: 0px 7px 8px -2px rgba(32, 32, 32, 0.541);
+  width: 420px;
+  height: 140px;
+}
+.top-bar {
+  height: 120px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.logo-icon {
+  width: 170px;
+}
+.profile-icon img {
+  border: 2px solid var(--background-card-color);
+  width: 80px;
+  border-radius: 50%;
+}
+.search-bar {
+  background: var(--background-main-color);
+  width: 370px;
+  height: 50px;
+  border-radius: 15px;
+  margin: 0 auto 50px auto;
+  box-shadow: 0px 0px 13px 1px rgba(32, 32, 32, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-bar input {
+  border: none;
+  width: 150px;
+  height: 40px;
+  border-radius: 15px 0 0 15px;
+}
+.input-display {
+  height: 25px;
+  border-right: 2px solid rgb(82, 82, 82);
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.input-display img {
+  width: 25px;
+  margin-left: 10px;
+}
+.input-display input {
+  font-size: 16px;
+  margin: 0 10px 0 7px;
+}
+.role-search select {
+  font-family: 'Poppins';
+  font-size: 15px;
+  text-align: left;
+  border: none;
+  width: 100px;
+  height: 50px;
+  border-radius: 0 15px 15px 0;
+  outline: none;
+}
+.role-search option {
+  font-family: 'Poppins';
+}
+/* Arrow */
+.select {
+  position: relative;
+  display: inline-block;
+  width: 160px;
+  height: 50px;
+}
+.select select {
+  font-family: 'Poppins';
+  font-size: 18px;
+  text-align: left;
+  margin-left: 10px;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  width: 180px;
+  height: 50px;
+  border-radius: 0 15px 15px 0;
+  outline: none;
+  background: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.select_arrow {
+  position: absolute;
+  top: 18px;
+  right: 8px;
+  width: 5px;
+  height: 5px;
+  border: solid #343434;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  margin-right: 7px;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+ /* / Select */
+.page {
+  width: 60%;
+  margin: -30px auto 0 auto;
+  display: grid;
+  grid-template-columns: 40% 10% 40%;
+}
+.page h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 auto;
+}
+.middle-bar {
+  border-right: 5px solid black;
+  width: 5px;
+}

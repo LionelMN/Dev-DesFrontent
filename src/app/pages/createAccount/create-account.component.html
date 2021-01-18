@@ -1,0 +1,88 @@
+<div class="log-in__container">
+  <div class="logo">
+    <img src="/assets/img/Recursos_logo-04.svg" alt="" [routerLink]="['']">
+  </div>
+
+  <div class="slogan">
+    <p>Find People. Make the Project.</p>
+  </div>
+  <form #frmRegister="ngForm" class="register-container" (ngSubmit)="validateSecondPart(frmRegister)">
+    <div class="1partRegister" [hidden]="activated2Part === true">
+      <div class="progress-register" >
+        <img src="../../../assets/img/MockUp_Proyecto DevDes-09.png"  alt="">
+      </div>
+      <div class="log-in form-text">
+        <fieldset class="user text-form">
+          <legend>Name</legend>
+          <input class="form-input" type="text" placeholder="User" name="name" ngModel required (focusout)="validateName(frmRegister)">
+        </fieldset>
+        <span class="errormsg">{{msgError.name}}</span>
+        <fieldset class="user-name text-form">
+          <legend>Username</legend>
+          <input class="form-input" type="text" placeholder="Username" name="username" ngModel required (focusout)="validateUsername(frmRegister)">
+        </fieldset>
+          <span class="errormsg">{{msgError.username}}</span>
+        <fieldset class="email text-form">
+          <legend>Email</legend>
+          <input class="form-input" type="email" placeholder="Email" name="email" ngModel required (focusout)="validateEmail(frmRegister)">
+        </fieldset>
+        <span class="errormsg">{{msgError.email}}</span>
+        <fieldset class="password text-form">
+          <legend>Password</legend>
+          <input id="password" class="form-input" type="password" placeholder="Password" name="password" ngModel required min="6" (focusout)="validatePassword(frmRegister)">
+          <img src="../../../assets/img/eyes-password.svg" class="eyes" alt="" (click)="showPassword('password')">
+        </fieldset>
+        <span class="errormsg">{{msgError.password}}</span>
+        <fieldset class="password text-form">
+          <legend>Confirm Password</legend>
+          <input id="cPassword" class="form-input" type="password" placeholder="Confirm password" name="confirmPassword" ngModel required min="6" (focusout)="validateCoincidePaswword(frmRegister)">
+          <img src="../../../assets/img/eyes-password.svg" class="eyes" alt="" (click)="showPassword('cPassword')">
+        </fieldset>
+        <span class="errormsg">{{msgError.coincidePasword}}</span>
+      </div>
+    </div>
+
+    <div class="2partRegister" [hidden]="activated2Part === false">
+      <div class="progress-register" >
+        <img src="../../../assets/img/MockUp_Proyecto DevDes-10.png"  alt="">
+      </div>
+      <div class="log-in">
+        <fieldset class="rol text-form">
+          <legend>Rol</legend>
+          <div class="select">
+            <select class="form-input select" id="Speciality" name="rol" required [(ngModel)]="selectedOption" (change)="saveOptions(selectedOption)" (change)="getAllSkillsByRol(selectedOption)">
+              <option class="option_form-styles" value="{{rol}}" *ngFor="let rol of roles">{{rol}}</option>
+            </select>
+            <div class="select_arrow"></div>
+          </div>
+        </fieldset>
+        <fieldset class="skills text-form">
+          <legend>Skills</legend>
+          <div class="select">
+            <select class="form-input select" id="Skills" name="skills" [(ngModel)]="selectedSkill" required (change)="saveSkills(selectedSkill)">
+              <option *ngFor="let speciality of specialities" class="option_form-styles" [value]="speciality.skill"><p>{{speciality.skill}}</p></option>
+            </select>
+            <div class="select_arrow"></div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="ballon__container">
+      <div class="options__container">
+        <div class="selected-option" *ngFor="let option of selectedOptions" (click)="deleteOption(option)">
+          <p>{{option}}</p>
+          <img src="/assets/img/cancel.png" alt="remove">
+        </div>
+        <div class="selected-option" *ngFor="let skill of selectedSkills" (click)="deleteSkill(skill)">
+          <p>{{skill}}<img src="/assets/img/cancel.png" alt="remove"></p>
+        </div>
+      </div>
+    </div>
+      <div>
+        <button class="create-account-button">Create an Account</button>
+      </div>
+    </div>
+  </form>
+  <button class="create-account-button" (click)="validateFirstPart(frmRegister)" *ngIf="activated2Part === false">Continue</button>
+  <button class="back-button" (click)="validateFirstPart(frmRegister)" *ngIf="activated2Part === true">Go Back</button>
+  <a [routerLink]="['/login']">I Already Have an Account</a>
+</div>

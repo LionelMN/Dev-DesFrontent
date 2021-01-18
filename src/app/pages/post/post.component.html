@@ -1,0 +1,52 @@
+
+ <div class="home-login-container">
+
+  <div class="container">
+      <div class="logo" routerLink="/home"> <img src="../../../assets/img/MockUp_Proyecto DevDes Logo unique-18.svg" > </div>
+      <div class="search">
+        <div class="input-container">
+          <input type="text" name="" placeholder="Search..." class="search-input">
+          <img class="icon-search" src="../../../assets/img/icon-search-28.svg">
+        </div>
+      </div>
+      <div class="pages">
+        <div class="page-actual"><p>Home</p>
+        </div>
+        <div class="page"><p>Following</p>
+        </div>
+      </div>
+      <div class="avatar" routerLink="/profile/{{userLogged.username}}">
+        <img class="avatar-photo" src="../../../assets/img/avatars/{{userLogged.img}}">
+      </div>
+    </div>
+
+  <div class="container-body">
+    <div class="card-post">
+      <img class="photo-post" src="../../../assets/img/posts/{{post.pictures[0]}}">
+      <div class="card-post-container">
+        <h1>{{post.title}}</h1>
+        <h3>Category:<span>{{post.category}}</span></h3>
+        <p>{{post.text}} </p>
+        <h3>We Need:</h3>
+        <div class="ballon-container">
+          <div class="need-ballon" *ngFor="let n of post.need">{{n}}</div>
+        </div>
+      </div>
+      <div class="card-description">
+        <div class="card-title">
+          <h4>{{post.title}}</h4>
+          <p>by</p>
+          <h6 routerLink="/profile/{{post.owner}}">{{post.owner}}</h6>
+        </div>
+        <div class="card-like">
+          <p>{{post.likes}}</p>
+          <img class="like-down" *ngIf="!userLogged.postsLiked.includes(post._id)" src="../../../assets/img/like-29.svg" (click)="modifyLikes(post)">
+          <img class="like-up" *ngIf="userLogged.postsLiked.includes(post._id)" src="../../../assets/img/like-30.svg" (click)="modifyLikes(post)">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

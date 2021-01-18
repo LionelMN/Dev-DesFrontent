@@ -1,0 +1,74 @@
+<div class="edit-profilecontainer">
+  <div class="top-bar__container">
+    <div class="return" routerLink="/home">
+      <img src="/assets/img/back.svg" alt="return">
+      <a>Back</a>
+    </div>
+    <div class="messages-icon">
+      <img src="/assets/img/messages.svg" alt="messages">
+    </div>
+  </div>
+  <div class="profile-picture">
+    <img src="/assets/img/avatars/{{userLogged.img}}" alt=""> <!--Imagen de prueba-->
+  </div>
+  <div class="profile-card__container">
+    <div class="profile-card_header">
+      <h1>Edit Profile</h1>
+      <button class="save-button" (click)="validateEdit(frmEdit)">Save</button>
+      <button class="cancel-button">Cancel</button>
+    </div>
+    <div class="display-chips">
+      <div class="selected-option rol" *ngFor="let rol of userLogged.rol">
+        <p>{{rol}}</p>
+      </div>
+    </div>
+    <div class="display-chips">
+      <div class="selected-option skill" *ngFor="let skill of userLogged.skills">
+        <p>{{skill}}</p>
+      </div>
+    </div>
+    <div class="edit-profile_form">
+      <form #frmEdit="ngForm" class="register-container">
+        <fieldset class="user text-form">
+          <legend>Name</legend>
+          <input class="form-input" type="text" placeholder="{{userLogged.name}}" name="name" ngModel required>
+        </fieldset>
+        <fieldset class="ubication text-form">
+          <legend>Ubication</legend>
+          <input class="form-input" type="text" placeholder="{{userLogged.ubication}}" name="ubication" ngModel required>
+        </fieldset>
+        <fieldset class="biography text-form">
+          <legend>Biography</legend>
+            <textarea name="biography" id="biography" cols="34" rows="10" ngModel required placeholder="{{userLogged.biography}}"></textarea>
+        </fieldset>
+        <fieldset class="email text-form">
+          <legend>Email</legend>
+          <input class="form-input" type="email" placeholder="{{userLogged.email}}" name="email" ngModel required>
+        </fieldset>
+        <fieldset class="password text-form">
+          <legend>Password</legend>
+          <input class="form-input" type="text" placeholder="Password" name="password" ngModel required>
+        </fieldset>
+        <fieldset class="rol text-form">
+          <legend>Rol</legend>
+          <div class="select">
+            <select class="form-input select" id="Speciality" name="rol" required [(ngModel)]="selectedOption" (change)="saveOptions(selectedOption)" (change)="getAllSkillsByRol(selectedOption)">
+              <option class="option_form-styles" value="{{rol}}" *ngFor="let rol of roles">{{rol}}</option>
+            </select>
+            <div class="select_arrow"></div>
+          </div>
+        </fieldset>
+        <fieldset class="skills text-form">
+          <legend>Skills</legend>
+          <div class="select">
+            <select class="form-input select" id="Skills" name="skills" [(ngModel)]="selectedSkill" required (change)="saveSkills(selectedSkill)">
+              <option *ngFor="let speciality of specialities" class="option_form-styles" [value]="speciality.skill"><p>{{speciality.skill}}</p></option>
+            </select>
+            <div class="select_arrow"></div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,8 @@
+.home_nav__container {
+  background: var(--background-color);
+  width: 90%;
+  height: 200px;
+  margin: 15px auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+}

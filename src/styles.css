@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+:root {
+  /* Light */
+  --background-main-color: #fffffe;
+  --button-primary: #3da9fc;
+  --button-form: #ef4565;
+  --button-text: #fffffe;
+  --paragraph-color: #5f6c7b;
+  --text-stroke: #094067;
+  --text-links: #ef4565;
+  --background-card-color: #094067;
+  --text-stroke-card: #fffffe;
+}
+
+
+/*Global*/
+body {
+  margin: 0;
+  background: url("/assets/img/MockUp_Proyecto_DevDes_Fondos-07.svg");
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+button {
+  cursor: pointer;
+}
+
+/* Tipografías */
+h1,h2,h3,p,a {
+  font-family: 'Poppins';
+}
+h1 {
+  font-size: 40px;
+}
+h2 {
+  font-size: 27px;
+}
+h3 {
+  font-size: 20px;
+}
+p {
+  font-size: 17px;
+}
+a {
+  color: var(--text-stroke);
+  font-size: 17px;
+  text-decoration: none;
+}
+
+/* Reutilizables */
+.button-primary {
+  background: var(--button-primary);
+  color: var(--button-text);
+  font-family: 'Poppins';
+  font-size: 15px;
+  font-weight: 500;
+  width: 135px;
+  height: 40px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+}
+.form-input {
+  background: var(--background-main-color);
+  color: var(--text-stroke);
+  font-size: 17px;
+  border: none;
+  width: 270px;
+  margin: 0 auto;
+  padding: 0 20px 0 20px;
+  border: none;
+  outline: none;
+}
+.form-text {
+  color: var(--text-stroke);
+  margin: -20px 0 0 0;
+  font-size: 15px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

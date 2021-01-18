@@ -1,0 +1,27 @@
+<div class="nav-bar__container">
+  <div class="top-bar">
+    <div class="logo-icon" routerLink="/home">
+    <img src="/assets/img/Recursos_logo-05.svg" alt="">
+  </div>
+  <div class="profile-icon">
+    <img src="/assets/img/avatars/{{userLogged.img}}" alt="" (click)="getUserByUsername(userLogged.username)">
+  </div>
+  </div>
+  <div class="search-bar">
+    <div class="input-display">
+      <img class="icon-search" src="../../../assets/img/icon-search-28.svg" (click)="getUserByUsername(search)">
+      <input type="text" name="" [(ngModel)]='search' placeholder="Username..." class="search-input">
+    </div>
+    <div class="role-search select">
+      <select class="form-input select" id="Speciality" name="rol" (change)="sentNeedToHome($event.target.value)" >
+        <option class="option_form-styles" value="{{rol}}" *ngFor="let rol of roles">{{rol}}</option>
+      </select>
+      <div class="select_arrow"></div>
+    </div>
+  </div>
+  <div class="page">
+    <h2 (click)="showHomePosts()">Home</h2>
+    <div class="middle-bar"></div>
+    <h2 (click)="showFollowPosts()">Following</h2>
+  </div>
+</div>

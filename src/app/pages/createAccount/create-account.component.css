@@ -1,0 +1,160 @@
+.log-in__container {
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: repeat(1fr);
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+.logo {
+  width: 150px;
+  height: 150px;
+  margin: 20px auto 0 auto;
+}
+.slogan {
+  color: var(--text-stroke);
+  margin: -10px 0 0 0;
+}
+.progress-register {
+  width: 150px;
+  margin: 0 auto 0 auto;
+}
+.progress-register img {
+  width: 150px;
+  height: auto;
+}
+.user-name p, .password p {
+  background-color: var(--text-stroke-card);
+  color: var(--text-stroke);
+  margin-bottom: -2px;
+  padding-left: 20px;
+}
+.password .eyes {
+  width: 25px;
+  margin-left: -40px;
+  margin-bottom: -2px;
+}
+fieldset {
+  background-color: var(--background-main-color);
+  color: var(--text-stroke);
+  font-family: 'poppins';
+  font-size: 17px;
+  border: 2px solid var(--background-card-color);
+  border-radius: 12px;
+  margin: 15px 0;
+  width: 300px;
+  height: 45px;
+}
+.create-account-button {
+  background: var(--background-card-color);
+  color: var(--text-stroke-card);
+  font-size: 20px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  width: 340px;
+  height: 45px;
+  margin-top: 10px;
+}
+.back-button {
+  background: #7390a5;
+  color: var(--text-stroke-card);
+  font-size: 20px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  width: 340px;
+  height: 45px;
+  margin: 20px auto 10px 0;
+}
+a {
+  margin: 10px auto 40px auto;
+}
+/*Burbujas*/
+.log-in fieldset {
+  width: 90%;
+}
+.ballon__container {
+  width: 340px;
+  display: flex;
+}
+.options__container {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.selected-option {
+  background: #49a0d6;
+  color: var(--background-main-color);
+  font-family: 'Poppins';
+  font-weight: 300;
+  text-align: center;
+  text-transform: capitalize;
+  border-radius: 20px;
+  width: max-content;
+  height: 30px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.selected-option:last-of-type {
+  margin-right: 0;
+}
+.selected-option p {
+  font-size: 14px;
+  padding: 10px 0 0 20px;
+}
+.selected-option img {
+  width: 8px;
+  margin-left: 5px;
+  padding-right: 20px;
+}
+/* Select */
+.select {
+  text-transform: capitalize;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.select p {
+  color: var(--text-stroke);
+  font-family: 'Poppins';
+}
+.select select {
+  background: #fffffe;
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  outline: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.select select::-ms-expand {
+    display: none;
+}
+.select select:disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+.select_arrow {
+  position: absolute;
+  top: 8px;
+  right: 15px;
+  pointer-events: none;
+  border-style: solid;
+  border-width: 12px 9px 4px 9px;
+  border-color: var(--background-card-color) transparent transparent transparent;
+}
+option {
+  background: var(--background-main-color);
+}
+.errormsg {
+  font-size: 12px;
+  color: red;
+}

@@ -1,0 +1,18 @@
+<div class="container-all">
+
+  <div class="header">
+    <div class="logo-icon">
+    <img src="/assets/img/Recursos_logo-05.svg" alt="">
+    </div>
+    <div class="profile-icon">
+      <img src="/assets/img/avatars/{{userLogged.img}}" alt="">
+    </div>
+  </div>
+  <div class="container-chats">
+    <h1>New Chat</h1>
+      <div (click)="createChat(follower.username)" class="chat" *ngFor="let follower of followings[0]">
+          <img src="../../../assets/img/avatars/{{follower.img}}" alt="">
+        <h2>{{follower.username}}</h2>
+      </div>
+  </div>
+</div>

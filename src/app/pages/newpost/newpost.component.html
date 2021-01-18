@@ -1,0 +1,58 @@
+
+ <div class="home-login-container">
+  <app-navbar></app-navbar>
+  <div class="container-body">
+    <div class="card-post">
+      <div class="card-post-container">
+        <div class="input-form-post">
+          <h1>Create a New Project</h1>
+          <form #frmPost="ngForm" (ngSubmit)="onValidatePost(frmPost)">
+            <fieldset class="project">
+              <legend>Project Name</legend>
+              <input type="text" name="title" class="form-input" placeholder="MyProject" ngModel required (focusout)="validateTitle(frmPost)">
+            </fieldset>
+            <span class="errormsg">{{msgError.title}}</span>
+            <fieldset class="description">
+              <legend>Description</legend>
+                <textarea rows='5' class="form-input description" name="text" placeholder="Lorem Fistrum Here.."[(ngModel)]="textArea" required (focusout)="validateDescription(frmPost)"></textarea>
+                <div class="description-down">
+                  <div class="description-loadphoto"><img src="../../../assets/img/MockUp_Proyecto DevDes-uploadphoto-34.svg" alt="upload Photo">Add Photos</div>
+                  <div class="description-count"><span>{{textArea.length}} /250 </span></div>
+              </div>
+            </fieldset>
+            <span class="errormsg">{{msgError.text}}</span>
+            <fieldset>
+              <legend>Category</legend>
+              <select class="form-input" name="category" id="category" ngModel required>
+                <option class="option_form-styles" value="Web">Web</option>
+                <option class="option_form-styles" value="App">App</option>
+                <option class="option_form-styles" value="Game">Game</option>
+              </select>
+            </fieldset>
+            <fieldset>
+              <legend>Profile Needed</legend>
+              <select class="form-input" name="need" id="profile" [(ngModel)]="selectedNeed" required (change)="saveNeed(selectedNeed)">
+                <option class="option_form-styles" value="Designer">Designer</option>
+                <option class="option_form-styles" value="Developer">Developer</option>
+                <option class="option_form-styles" value="Writer">Writer</option>
+                <option class="option_form-styles" value="Musician">Musician</option>
+              </select>
+            </fieldset>
+            <div class="ballon__container">
+            <div class="options__container">
+              <div class="selected-option" *ngFor="let need of selectedNeeds" (click)="deleteNeeds(need)">
+                <p>{{need}}</p>
+                <img src="/assets/img/cancel.png" alt="remove">
+              </div>
+            </div>
+          </div>
+            <button class="button-addpost">Add Post</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

@@ -1,0 +1,27 @@
+<div class="container-all">
+
+  <div class="header">
+    <div class="logo-icon" routerLink="/home">
+    <img src="/assets/img/Recursos_logo-05.svg" alt="">
+    </div>
+    <div class="profile-icon">
+      <img src="/assets/img/avatars/{{userLogged.img}}" alt="">
+    </div>
+  </div>
+
+  <div class="container-chats">
+    <div [routerLink]="'/chat/' + chat.id" class="chat" *ngFor="let chat of chats">
+      <img src="../../../assets/img/avatars/{{userAvatar}}" alt="">
+      <h2>{{getFriendName(chat)}}</h2>
+      <p>{{getLastMessage(chat).owner+".."+getLastMessage(chat).message}}</p>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button class="button-add" [routerLink]="['/newchat']">
+      <img src="../../../assets/img/NewMessage-40.svg">
+    </button>
+  </div>
+
+
+  </div>

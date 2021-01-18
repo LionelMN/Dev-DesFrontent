@@ -1,0 +1,90 @@
+<div class="home-login-container">
+  <app-navbar
+    (postArray)="getAllPostsByNeeds($event)"
+    (showHome)="showHome = $event"
+    (showFollow)="getFollowings($event)">
+  </app-navbar>
+<!--   <div class="container">
+      <div class="logo"> <img src="../../../assets/img/MockUp_Proyecto DevDes Logo unique-18.svg" > </div>
+      <div class="search">
+        <div class="input-container">
+          <input type="text" name="" [(ngModel)]='search' placeholder="Username..." class="search-input">
+          <img class="icon-search" src="../../../assets/img/icon-search-28.svg" (click)="getUserByUsername(search)">
+          <div class="select">
+            <select class="form-input select" id="Speciality" name="rol" required [(ngModel)]="selectedOption" (change)="getAllPostsByNeeds(selectedOption)">
+              <option class="option_form-styles" value="{{rol}}" *ngFor="let rol of roles">{{rol}}</option>
+            </select>
+            <div class="select_arrow"></div>
+          </div>
+        </div>
+      </div>
+      <div class="pages">
+        <div class="page-actual"><p>Home</p>
+        </div>
+        <div class="page" (click)="getFollowings()"><p>Following</p>
+        </div>
+      </div>
+      <div class="avatar">
+        <img class="avatar-photo" src="../../../assets/img/avatars/{{userLogged.img}}" routerLink="/profile/{{userLogged.username}}">
+      </div>
+    </div> -->
+    <div class="container-body" *ngIf="showPenguin">
+      <p>Looks like nobody needs you</p>
+      <img src="/assets/img/error404-35.svg" alt="">
+    </div>
+
+  <div class="container-body" *ngIf="!showPenguin && !showFollowing">
+    <div class="card-post" *ngFor="let post of postArray" >
+      <img class="photo-post" src="../../../assets/img/posts/{{post.pictures[0]}}" routerLink="/post/{{post._id}}">
+      <div class="card-description">
+        <div class="card-title">
+          <h4>{{post.title}} </h4>
+          <p>by</p>
+          <h6 routerLink="/profile/{{post.owner}}">{{post.owner}}</h6>
+        </div>
+        <div class="card-like">
+          <div class="postOptions" *ngIf="userLogged.username === post.owner">
+            <img src="../../../assets/img/edit-profile.svg" alt="edit" routerLink="/editpost/{{post._id}}">
+            <img src="../../../assets/img/cancel_mamadisimo.svg" alt="delete" (click)="deletePost(post._id)">
+          </div>
+          <p>{{post.likes}}</p>
+          <img class="like-down" *ngIf="!userLogged.postsLiked.includes(post._id)" src="../../../assets/img/like-29.svg" (click)="modifyLikes(post)">
+          <img class="like-up" *ngIf="userLogged.postsLiked.includes(post._id)" src="../../../assets/img/like-30.svg" (click)="modifyLikes(post)">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-body" *ngIf="!showPenguin && showFollowing">
+    <div class="span" *ngFor="let posts of followingsPosts[0]" >
+    <div class="card-post" *ngFor="let post of posts.posts" >
+      <img class="photo-post" src="../../../assets/img/posts/{{post.pictures[0]}}" routerLink="/post/{{post._id}}">
+      <div class="card-description">
+        <div class="card-title">
+          <h4>{{post.title}} </h4>
+          <p>by</p>
+          <h6 routerLink="/profile/{{post.owner}}">{{post.owner}}</h6>
+        </div>
+        <div class="card-like">
+          <div class="postOptions" *ngIf="userLogged.name === post.owner">
+            <img src="../../../assets/img/edit-profile.svg" alt="edit" routerLink="/editpost/{{post._id}}">
+            <img src="../../../assets/img/cancel_mamadisimo.svg" alt="delete" (click)="deletePost(post._id)">
+          </div>
+          <p>{{post.likes}}</p>
+          <img class="like-down" *ngIf="!userLogged.postsLiked.includes(post._id)" src="../../../assets/img/like-29.svg" (click)="modifyLikes(post)">
+          <img class="like-up" *ngIf="userLogged.postsLiked.includes(post._id)" src="../../../assets/img/like-30.svg" (click)="modifyLikes(post)">
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="button-container">
+    <button class="button-add" [routerLink]="['/newpost']">
+      <img src="../../../assets/img/añadir proyecto-31.svg">
+    </button>
+  </div>
+
+</div>
+
+

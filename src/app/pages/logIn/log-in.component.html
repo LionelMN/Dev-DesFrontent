@@ -1,0 +1,22 @@
+<div class="log-in__container">
+  <div class="logo">
+    <img src="/assets/img/Recursos_logo-04.svg" alt="">
+  </div>
+  <div class="slogan">
+    <p>Find People. Make the Project.</p>
+  </div>
+  <div class="log-in form-text">
+    <form #frmLogin="ngForm" class="login-container" (ngSubmit)="onLogin(frmLogin)">
+      <fieldset class="user-name">
+        <legend>Email</legend>
+        <input type="email" name="email" class="form-input" placeholder="Email" ngModel required>
+      </fieldset>
+      <fieldset class="password">
+        <legend>Password</legend>
+        <input type="password" name="password" class="form-input" placeholder="Password" ngModel required>
+      </fieldset>
+      <button class="log-in_button">Continuar</button>
+    </form>
+  </div>
+  <a [routerLink]="['/register']">Create an Account</a>
+</div>

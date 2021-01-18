@@ -1,0 +1,234 @@
+.top-bar__container {
+  width: 335px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto -30px auto;
+}
+.return {
+  display: flex;
+  justify-content: space-evenly;
+  justify-self: left;
+}
+.return img {
+  width: 50px;
+  margin-left: -10px;
+  justify-self: left;
+  align-self: flex-start;
+  cursor: pointer;
+}
+.return a {
+  font-size: 12px;
+  margin-top: 13px;
+}
+.profile-picture {
+  margin: -45px 0 0 0;
+  display: flex;
+  justify-content: center;
+}
+.profile-picture img {
+  border: 2px solid var(--background-card-color);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  z-index: 1;
+}
+.messages-icon {
+  justify-self: right;
+}
+.messages-icon img {
+  width: 50px;
+}
+/* Card Container */
+.profile-card__container {
+  background: var(--background-main-color);
+  color: var(--text-stroke);
+  width: 350px;
+  height: 530px;
+  margin: -20px 20px 20px 0;
+  -webkit-box-shadow: 1px 2px 8px 2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 2px 8px 2px rgba(0,0,0,0.75);
+  box-shadow: 1px 2px 8px 2px rgba(0,0,0,0.75);
+  border-radius: 25px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  display: grid;
+  grid-template-rows: repeat(1fr);
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+}
+
+.profile-card__container::-webkit-scrollbar {
+  display: none;
+}
+.profile-card_header {
+  height: 90px;
+  margin: 20px auto -20px auto;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+  color: #FFF;
+}
+
+.profile-card_header::after{
+  height: 100px;
+  width: 350px;
+  margin-bottom: 29px;
+  margin-left: -49px;
+  z-index: -1;
+  content: '';
+  position: absolute;
+  background:  #93bdd8;
+}
+
+.profile-card_header h1 {
+  margin: 0;
+}
+.profile-card_header img {
+  width: 70px;
+  height: 200px;
+  margin-right: 0;
+}
+.profile-card_header button {
+  color: var(--background-main-color);
+  text-align: center;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 60px;
+  height: 30px;
+}
+.profile-card_header button:hover {
+  box-shadow: 0px 0px 10px black;
+}
+.save-button {
+  background: var(--background-card-color);
+  margin-left: 10px;
+}
+.cancel-button {
+  background: var(--button-form);
+  margin-left: 5px;
+}
+/* Rol and skills */
+.display-chips {
+  margin: 20px 20px 0 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+.selected-option {
+  margin: 2.5px;
+}
+.rol p, .skill p {
+  color: var(--background-main-color);
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  width: max-content;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+.rol p {
+  background: #49a0d6;
+}
+.skill p {
+  background: #93bdd8;
+}
+/*Form */
+.edit-profile_form {
+  height: 170px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  justify-content: center;
+  align-content: flex-start;
+}
+.form-input {
+  background: var(--background-main-color);
+  color: var(--text-stroke);
+  font-size: 17px;
+  border: none;
+  width: 240px;
+  margin: 0 auto;
+  padding: 0 20px 0 20px;
+  border: none;
+  outline: none;
+}
+.text-form {
+  color: var(--text-stroke);
+  font-size: 15px;
+  margin: 15px 0 0 0;
+}
+fieldset {
+  background-color: var(--background-main-color);
+  color: var(--text-stroke);
+  font-family: 'poppins';
+  font-size: 17px;
+  border: 2px solid var(--background-card-color);
+  border-radius: 12px;
+  margin: 15px auto;
+  width: 250px;
+  height: 45px;
+}
+/* Text Area */
+.biography {
+  height: 200px;
+}
+#biography {
+  color: var(--text-stroke);
+  font-family: 'Poppins';
+  max-width: 280px;
+  min-width: 280px;
+  height: 170px;
+  max-height: 170px;
+  min-height: 170px;
+  border: none;
+}
+/* Select */
+.select {
+  text-transform: capitalize;
+  position: relative;
+  display: inline-block;
+  width: 280px;
+}
+.select:last-of-type {
+  margin-bottom: 50px;
+}
+.select p {
+  color: var(--text-stroke);
+  font-family: 'Poppins';
+}
+.select select {
+  background: #fffffe;
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  outline: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.select select::-ms-expand {
+    display: none;
+}
+.select select:disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+.select_arrow {
+  position: absolute;
+  top: 8px;
+  right: 15px;
+  pointer-events: none;
+  border-style: solid;
+  border-width: 12px 9px 4px 9px;
+  border-color: var(--background-card-color) transparent transparent transparent;
+}
+option {
+  background: var(--background-main-color);
+}

@@ -1,0 +1,31 @@
+<div class="container-all">
+
+<div class="header">
+  <div class="logo-icon" routerLink="/chatlist">
+  <img src="/assets/img/Recursos_logo-05.svg" alt="">
+  </div>
+  <div class="profile-icon">
+    <img src="/assets/img/avatars/{{userLogged.img}}" alt="">
+  </div>
+</div>
+<div #target class="container-chats" >
+    <div  *ngFor="let chat of messages"  set-focus="$last">
+      <div *ngIf="username != chat.owner" class="chat-received">
+        <h2>{{chat.owner}}</h2>
+        <p>{{chat.message}}</p>
+      </div>
+      <div *ngIf="username == chat.owner" class="chat-sent">
+        <h2>{{chat.owner}}</h2>
+        <p>{{chat.message}}</p>
+    </div>
+    </div>
+</div>
+<br>
+<div class="container-input">
+  <div class="input-message">
+      <div class="input-send"> <input type="text" placeholder="Enter message here..." name="name" autocomplete="off" [(ngModel)]="newMessage"> </div>
+      <div class="button-send"> <img (click)="sendMessage(newMessage)" src="../../../assets/img/sendMessageButton-41.svg"> </div>
+  </div>
+</div>
+
+</div>
